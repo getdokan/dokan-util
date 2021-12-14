@@ -1,16 +1,16 @@
 [
   {
-    "key":"dokan-bfcm2021",
-    "start_date":"2021-11-19 09:00:00 EST",
-    "end_date":"2021-11-30 23:00:00 EST",
-    "title":"Irresistible Black Friday & Cyber Monday Deals.",
-    "content":"Enjoy Up To 50% OFF on Dokan Pro.",
-    "action_url":"https://wedevs.com/dokan/pricing?utm_medium=text&utm_source=wordpress-dokan-bfcm2021",
-    "action_title":"Get Deals →"
+    "key":"dokan-holidaysale2021",
+    "start_date":"2021-12-24 09:00:00 EST",
+    "end_date":"2022-01-12 23:00:00 EST",
+    "title":"Happy Holidays",
+    "content":"Let The Festivities Begin. Enjoy Up To 35% OFF on Dokan Pro.",
+    "action_url":"https://wedevs.com/dokan/pricing?utm_medium=text&utm_source=wordpress-dokan-holidaysale2021",
+    "action_title":"Get Now →"
   },
   {
     "key":"dokan-test-bfcm2021",
-    "start_date":"2021-11-14 09:00:00 EST",
+    "start_date":"2021-11-14 00:00:00 EST",
     "end_date":"2021-11-14 23:59:59 EST",
     "title":"Irresistible Black Friday & Cyber Monday Deals 1.",
     "content":"Enjoy Up To 50% OFF on Dokan Pro.",
