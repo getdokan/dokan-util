@@ -1,0 +1,13 @@
+node_modules
+build
+npm-debug.log
+/includes/.DS_Store
+secret.json
+debug.log
+dist/*
+phpcs-report.txt
+.phpunit.result.cache
+/assets/images/ajax-loader@2x.gif
+/assets/images/spinner-2x.gif
+../.DS_Store
+../.idea

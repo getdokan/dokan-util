@@ -1,0 +1,19 @@
+{
+    "name": "wedevs/dokan-multistep-product-forms",
+    "description": "Multistep Product Forms for Dokan",
+    "type": "wordpress-plugin",
+    "license": "GPL2",
+    "authors": [
+        {
+            "name": "weDevs",
+            "email": "info@wedevs.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Wedevs\\Dokan\\MultistepProductForms\\": "includes/"
+        }
+    },
+    "minimum-stability": "dev",
+    "require": {}
+}
