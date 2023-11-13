@@ -1,0 +1,41 @@
+<?php return array(
+    'root' => array(
+        'name' => '__root__',
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
+        'reference' => '252f13a93036fa56541c2bb34291f9b86a684354',
+        'type' => 'library',
+        'install_path' => __DIR__ . '/../../',
+        'aliases' => array(),
+        'dev' => true,
+    ),
+    'versions' => array(
+        '__root__' => array(
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'reference' => '252f13a93036fa56541c2bb34291f9b86a684354',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../../',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'paypal/adaptivepayments-sdk-php' => array(
+            'pretty_version' => 'v3.9.2',
+            'version' => '3.9.2.0',
+            'reference' => '9fd8af48a7134f296552efd192023055b80f3cd2',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../paypal/adaptivepayments-sdk-php',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'paypal/sdk-core-php' => array(
+            'pretty_version' => '3.4.0',
+            'version' => '3.4.0.0',
+            'reference' => 'd2174f69f9811a8f2e79af7498fdf89586457d76',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../paypal/sdk-core-php',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+    ),
+);
