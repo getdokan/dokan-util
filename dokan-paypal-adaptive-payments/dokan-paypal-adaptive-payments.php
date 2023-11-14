@@ -118,3 +118,14 @@ final class DokanAdaptivePayments {
         load_plugin_textdomain( 'dokan-lite', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
     }
 }
+
+/**
+ * Main instance of DokanAdaptivePayments
+ *
+ * @since 0.0.1
+ *
+ * @return DokanAdaptivePayments
+ */
+function dokan_paypal_adaptive_payments() { // phpcs:ignore
+    return DokanAdaptivePayments::init();
+}
