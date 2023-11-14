@@ -50,9 +50,26 @@ final class DokanAdaptivePayments {
     private function __construct() {
         $this->define_constants();
         $this->includes();
+
+        // only load plugin files in case of dokan is active
         add_action(
-            'woocommerce_loaded',
+            'dokan_loaded',
             function () {
+                // check if dokan version is greater than 3.9.1
+                if ( ! function_exists( 'dokan_pro' ) ) {
+                    return;
+                }
+
+                // check if paypal adaptive payment is exists on the dokan pro
+                if ( dokan_pro()->module->is_available( 'dokan_paypal_ap' ) ) {
+                    return;
+                }
+
+                // check if dokan pro-plan is not free
+                if ( ! in_array( dokan_pro()->get_plan(), [ 'dokan-pro', 'professional', 'business', 'enterprise' ], true ) ) {
+                    return;
+                }
+
                 $this->hooks();
             }
         );
