@@ -1,7 +1,9 @@
 <?php
 namespace WeDevs\Dokan\MultiStepProductForms\Frontend;
 
+use Exception;
 use WeDevs\Dokan\ProductCategory\Helper;
+use WP_Error;
 
 if ( ! defined( 'ABSPATH' ) ) {
     exit();
@@ -24,6 +26,7 @@ class Products {
         add_action( 'dokan_after_listing_product', [ $this, 'load_add_new_product_popup' ], 10 );
         add_action( 'dokan_after_listing_product', [ $this, 'load_add_new_product_modal' ], 10 );
         add_action( 'template_redirect', [ $this, 'handle_product_add' ], 11 );
+        add_action( 'wp_ajax_dokan_create_new_product', [ $this, 'create_product' ] );
     }
 
     /**
@@ -37,7 +40,7 @@ class Products {
      */
     public function render_new_product_template( $query_vars ) {
         if ( isset( $query_vars['new-product'] ) && ! dokan()->is_pro_exists() ) {
-            dokan_get_template_part( 'products/new-product' );
+            include_once DOKAN_MULTISTEP_PRODUCT_FORMS_TEMPLATE_DIR . '/new-product.php';
         }
     }
 
@@ -49,7 +52,7 @@ class Products {
      * @return void
      */
     public function load_add_new_product_popup() {
-        dokan_get_template_part( 'products/tmpl-add-product-popup' );
+        include_once DOKAN_MULTISTEP_PRODUCT_FORMS_TEMPLATE_DIR . '/tmpl-add-product-popup.php';
     }
 
     /**
@@ -60,7 +63,7 @@ class Products {
      * @return void
      */
     public function load_add_new_product_modal() {
-        dokan_get_template_part( 'products/add-new-product-modal' );
+        include_once DOKAN_MULTISTEP_PRODUCT_FORMS_TEMPLATE_DIR . '/add-new-product-modal.php';
     }
 
     /**
@@ -229,6 +232,47 @@ class Products {
                     exit;
                 }
             }
+        }
+    }
+
+    /**
+     * Create product from popup submission
+     *
+     * @since  2.5.0
+     *
+     * @return void
+     */
+    public function create_product() {
+        check_ajax_referer( 'dokan_reviews' );
+
+        if ( ! current_user_can( 'dokan_add_product' ) ) {
+            wp_send_json_error( __( 'You have no permission to do this action', 'dokan-lite' ) );
+        }
+
+        $submited_data = isset( $_POST['postdata'] ) ? wp_unslash( $_POST['postdata'] ) : ''; //phpcs:ignore
+
+        parse_str( $submited_data, $postdata );
+
+        try {
+            $response = dokan()->product->create( $postdata );
+        } catch ( Exception $e ) {
+            $response = new WP_Error( $e->getCode(), $e->getMessage() );
+        }
+
+        if ( is_wp_error( $response ) ) {
+            wp_send_json_error( $response->get_error_message() );
+        }
+
+        if ( is_int( $response ) || is_a( $response, 'WC_Product' ) ) {
+            if ( current_user_can( 'dokan_edit_product' ) ) {
+                $redirect = dokan_edit_product_url( $response );
+            } else {
+                $redirect = dokan_get_navigation_url( 'products' );
+            }
+
+            wp_send_json_success( $redirect );
+        } else {
+            wp_send_json_error( __( 'Something wrong, please try again later', 'dokan-lite' ) );
         }
     }
 }
