@@ -17,7 +17,7 @@ class Assets {
      * @since 0.0.1
      */
     public function __construct() {
-        add_action( 'ini', [ $this, 'register_scripts' ] );
+        add_action( 'init', [ $this, 'register_scripts' ] );
         add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
     }
 
@@ -29,8 +29,8 @@ class Assets {
      * @return void
      */
     public function register_scripts() {
-        wp_register_style( 'dokan-multistep-product-forms', multistep_product_form()->get_assets_url() . '/css/dokan-multistep-product-forms.css', [], DOKAN_MULTISTEP_PRODUCT_FORMS_VERSION );
-        wp_register_script( 'dokan-multistep-product-forms', multistep_product_form()->get_assets_url() . '/js/dokan-multistep-product-forms.js', [ 'jquery' ], DOKAN_MULTISTEP_PRODUCT_FORMS_VERSION, true );
+        wp_register_style( 'dokan-multistep-product-forms', DOKAN_MULTISTEP_PRODUCT_FORMS_ASSETS . '/css/add-new-product-popup.css', [], DOKAN_MULTISTEP_PRODUCT_FORMS_VERSION );
+        wp_register_script( 'dokan-multistep-product-forms', DOKAN_MULTISTEP_PRODUCT_FORMS_ASSETS . '/js/product-editor.js', [ 'jquery' ], DOKAN_MULTISTEP_PRODUCT_FORMS_VERSION, true );
     }
 
     /**

@@ -6,5 +6,5 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Wedevs\\Dokan\\MultistepProductForms\\' => array($baseDir . '/includes'),
+    'WeDevs\\Dokan\\MultiStepProductForms\\' => array($baseDir . '/includes'),
 );

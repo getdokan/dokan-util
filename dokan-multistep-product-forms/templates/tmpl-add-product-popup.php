@@ -1,5 +1,6 @@
 <?php
 use WeDevs\Dokan\ProductCategory\Helper;
+use WeDevs\Dokan\ProductForm\Elements as FormElements;
 ?>
 <script type="text/html" id="tmpl-dokan-add-new-product">
     <div id="dokan-add-new-product-popup" class="white-popup dokan-add-new-product-popup">
@@ -16,7 +17,7 @@ use WeDevs\Dokan\ProductCategory\Helper;
                         $tags_placeholder  = 'on' === $can_create_tags ? __( 'Select tags/Add tags', 'dokan-lite' ) : __( 'Select product tags', 'dokan-lite' );
                         ?>
                         <div class="instruction-inside<?php echo esc_attr( $instruction_class ); ?>">
-                            <input type="hidden" name="feat_image_id" class="dokan-feat-image-id" value="<?php echo esc_attr( $feat_image_id ); ?>">
+                            <input type="hidden" name="<?php echo esc_attr( FormElements::FEATURED_IMAGE_ID ); ?>" class="dokan-feat-image-id" value="<?php echo esc_attr( $feat_image_id ); ?>">
 
                             <i class="fas fa-cloud-upload-alt"></i>
                             <a href="#" class="dokan-feat-image-btn btn btn-sm"><?php esc_html_e( 'Upload a product cover image', 'dokan-lite' ); ?></a>
@@ -37,7 +38,7 @@ use WeDevs\Dokan\ProductCategory\Helper;
                                             <a href="#" class="add-product-images"><i class="fas fa-plus" aria-hidden="true"></i></a>
                                         </li>
                                     </ul>
-                                    <input type="hidden" id="product_image_gallery" name="product_image_gallery" value="">
+                                    <input type="hidden" id="product_image_gallery" name="<?php echo esc_attr( FormElements::GALLERY_IMAGE_IDS ); ?>" value="">
                                 </div>
                             </div>
                         </div>
@@ -45,7 +46,7 @@ use WeDevs\Dokan\ProductCategory\Helper;
                 </div>
                 <div class="content-half-part dokan-product-field-content">
                     <div class="dokan-form-group">
-                        <input type="text" class="dokan-form-control" name="post_title" placeholder="<?php esc_attr_e( 'Product name..', 'dokan-lite' ); ?>">
+                        <input type="text" class="dokan-form-control" name="<?php echo esc_attr( FormElements::NAME ); ?>" placeholder="<?php esc_attr_e( 'Product name..', 'dokan-lite' ); ?>">
                     </div>
 
                     <div class="dokan-clearfix">
@@ -54,7 +55,7 @@ use WeDevs\Dokan\ProductCategory\Helper;
                                 <label for="_regular_price" class="form-label"><?php esc_html_e( 'Price', 'dokan-lite' ); ?></label>
                                 <div class="dokan-input-group">
                                     <span class="dokan-input-group-addon"><?php echo esc_html( get_woocommerce_currency_symbol() ); ?></span>
-                                    <input type="text" class="dokan-product-regular-price wc_input_price dokan-form-control" name="_regular_price" id="_regular_price" placeholder="0.00">
+                                    <input type="text" class="dokan-product-regular-price wc_input_price dokan-form-control" name="<?php echo esc_attr( FormElements::REGULAR_PRICE ) ?>" id="_regular_price" placeholder="0.00">
                                 </div>
                             </div>
 
@@ -67,7 +68,7 @@ use WeDevs\Dokan\ProductCategory\Helper;
 
                                 <div class="dokan-input-group">
                                     <span class="dokan-input-group-addon"><?php echo esc_html( get_woocommerce_currency_symbol() ); ?></span>
-                                    <input type="text" class="dokan-product-sales-price wc_input_price dokan-form-control"  name="_sale_price" placeholder="0.00" id="_sale_price">
+                                    <input type="text" class="dokan-product-sales-price wc_input_price dokan-form-control"  name="<?php echo esc_attr( FormElements::SALE_PRICE ); ?>" placeholder="0.00" id="_sale_price">
                                 </div>
                             </div>
                         </div>
@@ -76,14 +77,14 @@ use WeDevs\Dokan\ProductCategory\Helper;
                             <div class="content-half-part from">
                                 <div class="dokan-input-group">
                                     <span class="dokan-input-group-addon"><?php esc_html_e( 'From', 'dokan-lite' ); ?></span>
-                                    <input type="text" name="_sale_price_dates_from" class="dokan-form-control" value="" maxlength="10" pattern="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])" placeholder="<?php esc_attr_e( 'YYYY-MM-DD', 'dokan-lite' ); ?>">
+                                    <input type="text" name="<?php echo esc_attr( FormElements::DATE_ON_SALE_FROM ); ?>" class="dokan-form-control" value="" maxlength="10" pattern="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])" placeholder="<?php esc_attr_e( 'YYYY-MM-DD', 'dokan-lite' ); ?>">
                                 </div>
                             </div>
 
                             <div class="content-half-part to">
                                 <div class="dokan-input-group">
                                     <span class="dokan-input-group-addon"><?php esc_html_e( 'To', 'dokan-lite' ); ?></span>
-                                    <input type="text" name="_sale_price_dates_to" class="dokan-form-control" value="" maxlength="10" pattern="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])" placeholder="<?php esc_attr_e( 'YYYY-MM-DD', 'dokan-lite' ); ?>">
+                                    <input type="text" name="<?php echo esc_attr( FormElements::DATE_ON_SALE_TO ); ?>" class="dokan-form-control" value="" maxlength="10" pattern="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])" placeholder="<?php esc_attr_e( 'YYYY-MM-DD', 'dokan-lite' ); ?>">
                                 </div>
                             </div>
                         </div>
@@ -100,13 +101,13 @@ use WeDevs\Dokan\ProductCategory\Helper;
 
                     <div class="dokan-form-group">
                         <label for="product_tag_search" class="form-label"><?php esc_html_e( 'Tags', 'dokan-lite' ); ?></label>
-                        <select multiple="multiple" name="product_tag[]" id="product_tag_search" class="product_tag_search product_tags" data-placeholder="<?php echo esc_attr( $tags_placeholder ); ?>" style="width: 100%;"></select>
+                        <select multiple="multiple" name="<?php echo esc_attr( FormElements::TAGS ) ?>[]" id="product_tag_search" class="product_tag_search product_tags" data-placeholder="<?php echo esc_attr( $tags_placeholder ); ?>" style="width: 100%;"></select>
                     </div>
 
                     <?php do_action( 'dokan_new_product_after_product_tags' ); ?>
 
                     <div class="dokan-form-group">
-                        <textarea name="post_excerpt" id="" class="dokan-form-control" rows="5" placeholder="<?php esc_attr_e( 'Enter some short description about this product...' , 'dokan-lite' ) ?>"></textarea>
+                        <textarea name="<?php echo esc_attr( FormElements::SHORT_DESCRIPTION ); ?>" id="" class="dokan-form-control" rows="5" placeholder="<?php esc_attr_e( 'Enter some short description about this product...' , 'dokan-lite' ) ?>"></textarea>
                     </div>
                 </d>
             </div>

@@ -21,9 +21,9 @@ defined( 'ABSPATH' ) || exit;
  *
  * @since 0.0.1
  *
- * @property Admin\Settings    $admin_settings
- * @property Frontend\Assets   $assets
- * @property Frontend\Products $products
+ * @property Wedevs\Dokan\MultistepProductForms\Admin\Settings $admin_settings
+ * @property Frontend\Assets                                   $assets
+ * @property Frontend\Products                                 $products
  */
 class MultiStepProductForms {
 
@@ -95,6 +95,35 @@ class MultiStepProductForms {
                 $this->set_controllers();
             }
         );
+
+        register_activation_hook( __FILE__, [ $this, 'activate' ] );
+        register_deactivation_hook( __FILE__, [ $this, 'deactivate' ] );
+    }
+
+    /**
+     * Placeholder for activation function
+     */
+    public function activate() {
+        $dokan_selling = get_option( 'dokan_selling' );
+
+        $dokan_selling['one_step_product_create'] = 'off';
+        $dokan_selling['disable_product_popup']   = 'off';
+
+        update_option( 'dokan_selling', $dokan_selling );
+    }
+
+    /**
+     * Placeholder for deactivation function
+     *
+     * @return void
+     */
+    public function deactivate() {
+        $dokan_selling = get_option( 'dokan_selling' );
+
+        $dokan_selling['one_step_product_create'] = 'on';
+        $dokan_selling['disable_product_popup']   = 'on';
+
+        update_option( 'dokan_selling', $dokan_selling );
     }
 
     /**

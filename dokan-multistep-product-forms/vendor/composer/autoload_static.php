@@ -4,17 +4,17 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitddfc721fa73a93f52ea1f929a40cb744
+class ComposerStaticInit18287bb3d4c2a127d5c3e6f06f18d167
 {
     public static $prefixLengthsPsr4 = array (
         'W' => 
         array (
-            'Wedevs\\Dokan\\MultistepProductForms\\' => 35,
+            'WeDevs\\Dokan\\MultiStepProductForms\\' => 35,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'Wedevs\\Dokan\\MultistepProductForms\\' => 
+        'WeDevs\\Dokan\\MultiStepProductForms\\' => 
         array (
             0 => __DIR__ . '/../..' . '/includes',
         ),
@@ -27,9 +27,9 @@ class ComposerStaticInitddfc721fa73a93f52ea1f929a40cb744
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitddfc721fa73a93f52ea1f929a40cb744::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitddfc721fa73a93f52ea1f929a40cb744::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInitddfc721fa73a93f52ea1f929a40cb744::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit18287bb3d4c2a127d5c3e6f06f18d167::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit18287bb3d4c2a127d5c3e6f06f18d167::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit18287bb3d4c2a127d5c3e6f06f18d167::$classMap;
 
         }, null, ClassLoader::class);
     }
