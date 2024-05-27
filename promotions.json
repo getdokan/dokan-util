@@ -1,20 +1,11 @@
 [
   {
-    "key":"early-bird-2023",
-    "start_date":"2023-11-14 11:00:00 EST",
-    "end_date":"2023-11-16 11:00:00 EST",
-    "title":"Black Friday Early Bird has arrived for 48 hours only!",
-    "content":"Save up to 50% on our biggest deal of the year & unlock Dokan’s premium modules.",
-    "action_url":"https://dokan.co/wordpress/pricing/?utm_campaign=Early-Bird-2023&utm_medium=WP-Dashboard&utm_source=WP-Dashboard",
-    "action_title":"Unlock Savings Now →"
-  },
-  {
-    "key":"BFCM-2023",
-    "start_date":"2023-11-16 11:10:00 EST",
-    "end_date":"2023-12-05 11:00:00 EST",
-    "title":"Black Friday to Cyber Monday Exclusive.",
-    "content":"Seize up to 45% off on Dokan’s premium modules. Dive into the year’s biggest savings event!",
-    "action_url":"https://dokan.co/wordpress/pricing/?utm_campaign=BFCM-2023&utm_medium=WP-Dashboard&utm_source=WP-Dashboard",
-    "action_title":"Save Big →"
+    "key":"wordpress-21-years-2024",
+    "start_date":"2024-05-27 08:00:00 EST",
+    "end_date":"2024-06-06 12:00:00 EST",
+    "title":"21 Years of WordPress, Dokan Slashes Prices! Get 21% off Dokan Multivendor for a limited time!",
+    "content":"",
+    "action_url":"https://dokan.co/wordpress/pricing/?utm_campaign=WordPress-21-Anniversary&utm_medium=Plugin&utm_source=WP-Dashboard",
+    "action_title":"Upgrade Now"
   }
 ]
